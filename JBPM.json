@@ -1,0 +1,1743 @@
+{
+	"info": {
+		"_postman_id": "f2babc2b-f363-47b8-8295-58812fac51ef",
+		"name": "JBPM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Obtener lista tareas del Usuario sin Asignar",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/rest/server/queries/tasks/instances/pot-owners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"queries",
+								"tasks",
+								"instances",
+								"pot-owners"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "Obtiene las tareas de usuario sin asignar. Solo trae las tareas asignadas a un rol especifico.\n\nSi el usuario logeado que hace la peticion tiene el rol de \"secretaria_nacional\", solo obtendra las tareas asignadas para ese rol y solo los que no estan reclamados."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener lista tareas Asignadas al usuario",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/rest/server/queries/tasks/instances",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"queries",
+								"tasks",
+								"instances"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reclamar tarea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/jbpm-continental-kjar/tasks/29/states/claimed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"jbpm-continental-kjar",
+								"tasks",
+								"29",
+								"states",
+								"claimed"
+							],
+							"query": [
+								{
+									"key": "containerId",
+									"value": "jbpm-continental-kjar",
+									"disabled": true
+								},
+								{
+									"key": "taskInstanceId",
+									"value": "16",
+									"disabled": true
+								},
+								{
+									"key": "user",
+									"value": "flavio",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener datos de una tarea especifico",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/jbpm-continental-kjar/tasks/51",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"jbpm-continental-kjar",
+								"tasks",
+								"51"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener datos de una instancia de tarea en un proceso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/queries/tasks/instances/process/5802",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"queries",
+								"tasks",
+								"instances",
+								"process",
+								"5802"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inicializar tarea Reclamada",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/oficios-jbpm-kjar/tasks/60/states/started",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"oficios-jbpm-kjar",
+								"tasks",
+								"60",
+								"states",
+								"started"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Completar tarea",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isApproved\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/oficios-jbpm-kjar/tasks/1/states/completed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"oficios-jbpm-kjar",
+								"tasks",
+								"1",
+								"states",
+								"completed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener valor de las variables de una instancia de proceso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"acuse_aprobado\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/notas-jbpm-kjar/processes/instances/5803/variables",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"notas-jbpm-kjar",
+								"processes",
+								"instances",
+								"5803",
+								"variables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener workItems de la instancia de proceso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"acuse_aprobado\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/notas-jbpm-kjar/processes/instances/5752/workitems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"notas-jbpm-kjar",
+								"processes",
+								"instances",
+								"5752",
+								"workitems"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Procesos",
+			"item": [
+				{
+					"name": "Obtener Procesos de un container",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/notas-jbpm-kjar/processes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"notas-jbpm-kjar",
+								"processes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instanciar un Proceso",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codigoOperacion\": \"1133013\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/jbpm-continental-kjar/processes/notas/instances",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"jbpm-continental-kjar",
+								"processes",
+								"notas",
+								"instances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener datos de una Instancia de Proceso",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/oficios-jbpm-kjar/processes/instances/1804",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"oficios-jbpm-kjar",
+								"processes",
+								"instances",
+								"1804"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Definiciones del Proceso",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/rest/server/queries/processes/definitions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"queries",
+								"processes",
+								"definitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener datos de las instancias de Proceso",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/jbpm-continental-kjar/processes/instances",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"jbpm-continental-kjar",
+								"processes",
+								"instances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Abortar instancia de proceso",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/jbpm-continental-kjar/processes/instances/4052",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"jbpm-continental-kjar",
+								"processes",
+								"instances",
+								"4052"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener imagen svg del estado de una instancia de proceso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/jbpm-continental-kjar/images/processes/instances/1753",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"jbpm-continental-kjar",
+								"images",
+								"processes",
+								"instances",
+								"1753"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener imagen svg de la definicion del proceso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"acuse_aprobado\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/oficios-jbpm-kjar/images/processes/oficios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"oficios-jbpm-kjar",
+								"images",
+								"processes",
+								"oficios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Containers",
+			"item": [
+				{
+					"name": "Obtener Containers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asignar grupos o usuarios a una tarea",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const loginUrl = \"https://keycloak-auth-desa.bancontinental.com.py/realms/jbpm_realm/protocol/openid-connect/token\";\r",
+									"const username = 'administrator';\r",
+									"const password = 'a.123456'\r",
+									"pm.sendRequest({\r",
+									"    url: loginUrl,\r",
+									"    method: 'POST',\r",
+									"    header: {\r",
+									"        'content-type': 'application/x-www-form-urlencoded',\r",
+									"    },\r",
+									"    body : {\r",
+									"        mode: 'urlencoded',\r",
+									"        urlencoded: [\r",
+									"            { key: 'grant_type', value: 'password' },\r",
+									"            { key: 'client_id', value: 'jbpm-client' },\r",
+									"            { key: 'client_secret', value: 'fGbm7ClSzX9oQTU0loqkEMaD14NB2jYi' },\r",
+									"            { key: 'scope', value: 'openid' },\r",
+									"            { key: 'username', value: username },\r",
+									"            { key: 'password', value: password }\r",
+									"        ]\r",
+									"    }\r",
+									"}, function (err, res) {\r",
+									"    pm.environment.set(\"auth\",  res.json().access_token);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"users\" : [\"rafael.recoder\"],\r\n    \"groups\" : []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/admin/containers/jbpm-continental-kjar/tasks/70/admins",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"admin",
+								"containers",
+								"jbpm-continental-kjar",
+								"tasks",
+								"70",
+								"admins"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jbpm Controller",
+			"item": [
+				{
+					"name": "Instanciar un proceso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codigoOperacion\" : \"1098169123\",\r\n    \"usuario\": \"isaac.coronel\",\r\n    \"equipoNuevo\": \"informatica3\",\r\n    \"sucursal\": \"26 - Suc. SantaRita\",\r\n    \"path\": \"bancontinental.com.py/Bancontinental/26 - Suc. SantaRita/Usuarios/PRUEBA LDAP\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/jbpm/process/start",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"jbpm",
+								"process",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Completar Tarea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isApproved\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/jbpm/tasks/123/complete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"jbpm",
+								"tasks",
+								"123",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Abortar un proceso",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/jbpm/process/3002/abort",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"jbpm",
+								"process",
+								"3002",
+								"abort"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener mis tareas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/jbpm/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"jbpm",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener tareas de un proceso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/jbpm/process/552/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"jbpm",
+								"process",
+								"552",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener una tarea especifica",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/jbpm/v1/tasks/50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"jbpm",
+								"v1",
+								"tasks",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delegar Tarea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isApproved\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/jbpm/tasks/{taskId}/delegate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"jbpm",
+								"tasks",
+								"{taskId}",
+								"delegate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener los pot-owners de una tarea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/jbpm/tasks/64/potentialOwners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"jbpm",
+								"tasks",
+								"64",
+								"potentialOwners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reasignar usuarios a una tarea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isApproved\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/jbpm/tasks/32/potentialOwners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"jbpm",
+								"tasks",
+								"32",
+								"potentialOwners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liberar Tarea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isApproved\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/jbpm/tasks/29/release",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"jbpm",
+								"tasks",
+								"29",
+								"release"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SVG de la instancia de proceso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/v1/jbpm/process/4052/svg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"jbpm",
+								"process",
+								"4052",
+								"svg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actuator",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/actuator/health/readiness",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"actuator",
+								"health",
+								"readiness"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jbpm Controller K8S",
+			"item": [
+				{
+					"name": "Instanciar un proceso",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Subscription-key",
+								"value": "3afcda20f18a4f048dfd46d6c1c17999",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codigoOperacion\" : \"1133013\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expose-desa-gw.bancontinental.com.py/jbpm-api-legales-recepcion-notas/v1/jbpm/process/start",
+							"protocol": "https",
+							"host": [
+								"expose-desa-gw",
+								"bancontinental",
+								"com",
+								"py"
+							],
+							"path": [
+								"jbpm-api-legales-recepcion-notas",
+								"v1",
+								"jbpm",
+								"process",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Completar Tarea",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Subscription-key",
+								"value": "3afcda20f18a4f048dfd46d6c1c17999",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isApproved\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expose-desa-gw.bancontinental.com.py/jbpm-api-legales-recepcion-notas/v1/jbpm/tasks/178/complete",
+							"protocol": "https",
+							"host": [
+								"expose-desa-gw",
+								"bancontinental",
+								"com",
+								"py"
+							],
+							"path": [
+								"jbpm-api-legales-recepcion-notas",
+								"v1",
+								"jbpm",
+								"tasks",
+								"178",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Abortar un proceso",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expose-desa-gw.bancontinental.com.py/jbpm-api-legales-recepcion-notas/v1/jbpm/process/552/abort",
+							"protocol": "https",
+							"host": [
+								"expose-desa-gw",
+								"bancontinental",
+								"com",
+								"py"
+							],
+							"path": [
+								"jbpm-api-legales-recepcion-notas",
+								"v1",
+								"jbpm",
+								"process",
+								"552",
+								"abort"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener mis tareas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Subscription-key",
+								"value": "3afcda20f18a4f048dfd46d6c1c17999",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expose-desa-gw.bancontinental.com.py/jbpm-api-legales-recepcion-notas/v1/jbpm/tasks",
+							"protocol": "https",
+							"host": [
+								"expose-desa-gw",
+								"bancontinental",
+								"com",
+								"py"
+							],
+							"path": [
+								"jbpm-api-legales-recepcion-notas",
+								"v1",
+								"jbpm",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener tareas de un proceso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expose-desa-gw.bancontinental.com.py/jbpm-api-legales-recepcion-notas/v1/jbpm/process/552/tasks",
+							"protocol": "https",
+							"host": [
+								"expose-desa-gw",
+								"bancontinental",
+								"com",
+								"py"
+							],
+							"path": [
+								"jbpm-api-legales-recepcion-notas",
+								"v1",
+								"jbpm",
+								"process",
+								"552",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener una tarea especifica",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expose-desa-gw.bancontinental.com.py/jbpm-api-legales-recepcion-notas/v1/jbpm/tasks/50",
+							"protocol": "https",
+							"host": [
+								"expose-desa-gw",
+								"bancontinental",
+								"com",
+								"py"
+							],
+							"path": [
+								"jbpm-api-legales-recepcion-notas",
+								"v1",
+								"jbpm",
+								"tasks",
+								"50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delegar Tarea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isApproved\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expose-desa-gw.bancontinental.com.py/jbpm-api-legales-recepcion-notas/v1/jbpm/tasks/{taskId}/delegate",
+							"protocol": "https",
+							"host": [
+								"expose-desa-gw",
+								"bancontinental",
+								"com",
+								"py"
+							],
+							"path": [
+								"jbpm-api-legales-recepcion-notas",
+								"v1",
+								"jbpm",
+								"tasks",
+								"{taskId}",
+								"delegate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener los pot-owners de una tarea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expose-desa-gw.bancontinental.com.py/jbpm-api-legales-recepcion-notas/v1/jbpm/tasks/999/potentialOwners",
+							"protocol": "https",
+							"host": [
+								"expose-desa-gw",
+								"bancontinental",
+								"com",
+								"py"
+							],
+							"path": [
+								"jbpm-api-legales-recepcion-notas",
+								"v1",
+								"jbpm",
+								"tasks",
+								"999",
+								"potentialOwners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reasignar usuarios a una tarea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isApproved\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expose-desa-gw.bancontinental.com.py/jbpm-api-legales-recepcion-notas/v1/jbpm/tasks/32/potentialOwners",
+							"protocol": "https",
+							"host": [
+								"expose-desa-gw",
+								"bancontinental",
+								"com",
+								"py"
+							],
+							"path": [
+								"jbpm-api-legales-recepcion-notas",
+								"v1",
+								"jbpm",
+								"tasks",
+								"32",
+								"potentialOwners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liberar Tarea",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isApproved\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expose-desa-gw.bancontinental.com.py/jbpm-api-legales-recepcion-notas/v1/jbpm/tasks/29/release",
+							"protocol": "https",
+							"host": [
+								"expose-desa-gw",
+								"bancontinental",
+								"com",
+								"py"
+							],
+							"path": [
+								"jbpm-api-legales-recepcion-notas",
+								"v1",
+								"jbpm",
+								"tasks",
+								"29",
+								"release"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SVG de la instancia de proceso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expose-desa-gw.bancontinental.com.py/jbpm-api-legales-recepcion-notas/v1/jbpm/process/1754/svg",
+							"protocol": "https",
+							"host": [
+								"expose-desa-gw",
+								"bancontinental",
+								"com",
+								"py"
+							],
+							"path": [
+								"jbpm-api-legales-recepcion-notas",
+								"v1",
+								"jbpm",
+								"process",
+								"1754",
+								"svg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instanciar un proceso Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Subscription-key",
+								"value": "3afcda20f18a4f048dfd46d6c1c17999",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codigoOperacion\" : \"1133013\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://expose-qa-gw.bancontinental.com.py/jbpm/v1/notas/process/start",
+							"protocol": "https",
+							"host": [
+								"expose-qa-gw",
+								"bancontinental",
+								"com",
+								"py"
+							],
+							"path": [
+								"jbpm",
+								"v1",
+								"notas",
+								"process",
+								"start"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{auth}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const loginUrl = \"https://keycloak-auth-desa.bancontinental.com.py/realms/continentalAd/protocol/openid-connect/token\";",
+					"const username = 'axl.guanes';",
+					"const password = 'a.123456'",
+					"pm.sendRequest({",
+					"    url: loginUrl,",
+					"    method: 'POST',",
+					"    header: {",
+					"        'content-type': 'application/x-www-form-urlencoded',",
+					"    },",
+					"    body : {",
+					"        mode: 'urlencoded',",
+					"        urlencoded: [",
+					"            { key: 'grant_type', value: 'password' },",
+					"            { key: 'client_id', value: 'jbpm-client' },",
+					"            { key: 'client_secret', value: 'KFTTq5uoQPdfS8Xjf6GZAGewRPPaEHbt' },",
+					"            { key: 'scope', value: 'openid' },",
+					"            { key: 'username', value: username },",
+					"            { key: 'password', value: password }",
+					"        ]",
+					"    }",
+					"}, function (err, res) {",
+					"    pm.environment.set(\"auth\",  res.json().access_token);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

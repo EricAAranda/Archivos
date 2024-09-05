@@ -1,0 +1,758 @@
+{
+	"info": {
+		"_postman_id": "1b55ca2b-cc82-4e22-bbfb-9aa3eb303886",
+		"name": "Ciclo Aprobacion Continental",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener Token desa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.environment.set(\"token\", jsonData.access_token);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"\r",
+							"    pm.response.to.have.status(200);\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJoNmkxWnFkVHBUZ2Z2TDZXcS04blFROEtPSTRQNkFta1FVOWxVVE93c1pRIn0.eyJleHAiOjE2MzYwMzQwNDUsImlhdCI6MTYzNjAzMDQ0NSwianRpIjoiYTNhNzMxZWEtMjZmMy00YzU1LTg2YzUtNDQ1NzE4NDdjZDc5IiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay1kZXNhLmJhbmNvbnRpbmVudGFsLmNvbS5weS9hdXRoL3JlYWxtcy9pbnRlcm5vIiwiYXVkIjpbImNpY2xvZGVhcHJvYmFjaW9uIiwiYWNjb3VudCJdLCJzdWIiOiIwZjUzZjk0MS1iYzgwLTQ3NGQtYThkMC02ZmJmMmQ1NzMzMjciLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzaGFyZXBvaW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjEwLjM1LjAuMCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJzaGFyZXBvaW50IiwiY2FuYWwiOiJzaGFyZXBvaW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXNoYXJlcG9pbnQiLCJjbGllbnRBZGRyZXNzIjoiMTAuMzUuMC4wIn0.MdESvjSiw1lOvzgl1Ih4omD0ckvZX2WLPgslMNw56mN7Tqz9HAbIkAeH_j4QenundaZCjsAOpkZJPOqJffLnTX79CLd6ZM9xT3Q6TtT-Jmry5aMYfYHAE9rFXj0ydaj-f3z9oM8KKHikb486oomqvCzeCfWUggHnc6Jo7JFRhWAuUvUMliIpJLdYtPy9B4ZzlcoX1E0NpAz3hTsYSWC2ewftJCth3AY78stUodcHRvM4juJfx3XDWXev1COCANGBXOiScE1IDqAArHA0364KoomMm8FngIpLt6uA_fI6i0B-8XMX288qLgKvfsnH_AlFzmjFrdgxS-5kmxRzILoeHw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Subscription-key",
+						"value": "88b20fe90a2d46529b7a5e9e9af3f38c",
+						"type": "text"
+					},
+					{
+						"key": "Grant-Type",
+						"value": "client_credentials",
+						"type": "text"
+					},
+					{
+						"key": "Client-Id",
+						"value": "sharepoint",
+						"type": "text"
+					},
+					{
+						"key": "Client-Secret",
+						"value": "ad97a622-c001-4bc4-830d-c6490c2cb9e7",
+						"type": "text"
+					},
+					{
+						"key": "Scope",
+						"value": "profile",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"cliente\":\"\",\r\n  \"tipoSeguimiento\": 6,\r\n  \"usuario\": {\r\n    \"usuario\": \"EZA\",\r\n    \"nombre\": \"\",\r\n    \"usuarioDominio\": \"\"\r\n  },\r\n  \"codigo\": 0,\r\n  \"descripcion\": \"01059228021\",\r\n  \"paginaInicio\": 0,\r\n  \"paginaFinal\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-test.bancontinental.com.py/autenticarServicio/v1/realms/interno",
+					"protocol": "https",
+					"host": [
+						"api-test",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"autenticarServicio",
+						"v1",
+						"realms",
+						"interno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Definiciones de Tarea",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkcXg3bWhXTEwyQW9OOHBfWGd6cG5iajRhMzFySDV1Um5Ua0Fld2k2ZjFnIn0.eyJleHAiOjE3MjU0OTAzOTEsImlhdCI6MTcyNTQ2MTU5MSwianRpIjoiZWQ0NWVjODEtZWEzMi00OTNjLThkMDktOTNlNDE0ZjhjYmI5IiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay1kZXNhLmJhbmNvbnRpbmVudGFsLmNvbS5weS9hdXRoL3JlYWxtcy9pbnRlcm5vIiwiYXVkIjpbImNpY2xvZGVhcHJvYmFjaW9uIiwiYWNjb3VudCJdLCJzdWIiOiI0YjU5YzY1NS01NTFlLTRmMGEtYTZjMS03ZjYzNjVkMmI4MTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzaGFyZXBvaW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE5MC4xMDQuMTc5LjE5MCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJzaGFyZXBvaW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXNoYXJlcG9pbnQiLCJjYW5hbCI6InNoYXJlcG9pbnQiLCJjbGllbnRBZGRyZXNzIjoiMTkwLjEwNC4xNzkuMTkwIn0.gICWCWLNwQuGqlVVukBrDM1HKwLJNPE1qHvg0ESnT-YUdqxZjTaWAouA_cpJDG5104AwkWYt2p52F6lX3TcJSoOtq_KY81WDh_eGbwLN48DIlD_dzIBJVvLUdGABNzY3VtpF_2056fxbyJcoeKaqU4c-DfKROb4GQUVozsnva46QSAzSyhexG3MvbsRkNlVal07z0KLO5ws_HcAV92rkAmIVbHMPZvQChL_JOqD-LF_1DaeAj4jxwRRw0Q-pYTLjBH5l3KHAk72rcl6mp5tkrFJAki_hn8BtOBbY-FC2NjggTmGuvZEm_ixMypnc4AS8gwW27ITstR13QJfoqKYzZw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Subscription-key",
+						"value": "88b20fe90a2d46529b7a5e9e9af3f38c",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"codigoProducto\": 10,\r\n  \"codigoSubProducto\": 53\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-test-gw.bancontinental.com.py/ciclodeaprobacion/v1/consultas/tareas",
+					"protocol": "https",
+					"host": [
+						"api-test-gw",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"ciclodeaprobacion",
+						"v1",
+						"consultas",
+						"tareas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Roles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkcXg3bWhXTEwyQW9OOHBfWGd6cG5iajRhMzFySDV1Um5Ua0Fld2k2ZjFnIn0.eyJleHAiOjE3MjQ4ODU4NjAsImlhdCI6MTcyNDg1NzA2MCwianRpIjoiZDU1OThhMjItNzFmNy00YjRhLWJmMzYtMWM4ZGIwZTgyYjg3IiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay1kZXNhLmJhbmNvbnRpbmVudGFsLmNvbS5weS9hdXRoL3JlYWxtcy9pbnRlcm5vIiwiYXVkIjpbImNpY2xvZGVhcHJvYmFjaW9uIiwiYWNjb3VudCJdLCJzdWIiOiI0YjU5YzY1NS01NTFlLTRmMGEtYTZjMS03ZjYzNjVkMmI4MTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzaGFyZXBvaW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjEzMS4xNjEuMjUyLjEzMCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJzaGFyZXBvaW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXNoYXJlcG9pbnQiLCJjYW5hbCI6InNoYXJlcG9pbnQiLCJjbGllbnRBZGRyZXNzIjoiMTMxLjE2MS4yNTIuMTMwIn0.p8BzYz-5IWow4QQbvp4n2N0rf-YuLcy8e1mVpGlwsilHplSuqKBEseg1aJR5KZ1mfVu0inPJC4kVPZbpyvZSoFufdtzI797aUSE8UPhXkwG1yDkBqGRJhlTH1uwnGIe-JQILj_zsiBYDj8Cs554lajkXGWbRnMulh5DUPNQo0reTsBB8tCjz9agkP_6hDJ0S4fBoKBEOSmLQ3HP0vxgomNhsealz2tPGxWJ_VShUxRGX_gZM7f3l0hK5Guw8KeBsHxlUCxmMXjuzPQTOIy9TnXlGwb7IOS9NUSVaJEDVtPCbx_m5KpKjiXt_KsNmizEvo0JVNPTFNoF3pQlIJ_QdrQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Subscription-key",
+						"value": "88b20fe90a2d46529b7a5e9e9af3f38c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"usuarioDominio\": \"\",\r\n  \"codigoDepartamento\": 0,\r\n  \"sucursal\": \"\",\r\n  \"codigo\": 201,\r\n  \"descripcion\": \"\",\r\n  \"paginaInicio\": 0,\r\n  \"paginaFinal\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-test-gw.bancontinental.com.py/ciclodeaprobacion/v1/roles",
+					"protocol": "https",
+					"host": [
+						"api-test-gw",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"ciclodeaprobacion",
+						"v1",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insertar tracking",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkcXg3bWhXTEwyQW9OOHBfWGd6cG5iajRhMzFySDV1Um5Ua0Fld2k2ZjFnIn0.eyJleHAiOjE3MjUzMTM0NDYsImlhdCI6MTcyNTI4NDY0NiwianRpIjoiYjU2ZGJmZGUtNDc0NS00N2U5LWJmYTItMzgxZDJiYjg1NTMxIiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay1kZXNhLmJhbmNvbnRpbmVudGFsLmNvbS5weS9hdXRoL3JlYWxtcy9pbnRlcm5vIiwiYXVkIjpbImNpY2xvZGVhcHJvYmFjaW9uIiwiYWNjb3VudCJdLCJzdWIiOiI0YjU5YzY1NS01NTFlLTRmMGEtYTZjMS03ZjYzNjVkMmI4MTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzaGFyZXBvaW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjIwMC44NS40MS41OCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJzaGFyZXBvaW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXNoYXJlcG9pbnQiLCJjYW5hbCI6InNoYXJlcG9pbnQiLCJjbGllbnRBZGRyZXNzIjoiMjAwLjg1LjQxLjU4In0.Q3pPeUEsfX5F1nLubQ4jYevhMGc9V2mzUU7bC-8b4-57DQOOcWUzDXCmy5VUYEqtogjdNQz8KvEEEh1ac3SwnouCMuU6SHQKZpNOhgC7muwkIHrRgMk4mcppp74gDMpbvc4Y86ax5g78rbxTx7snat4mzgHUWlrEHp2tzb5T6BnfSZcmXBRSwdpaWk05rydtGR1m2wIrwN8rfAUPaDKlkbRhmwfK0SYh-R64uPfv7KEmFhBp9DhuJ343Vmv1u703dbVhop9nfJTXChjcND3HbO-vgaTItcMWsbnUqc4zu84RzmLUksS8ckKxP0gaivxRaxFz0RyvyMUdGcktJziE6Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Subscription-key",
+						"value": "88b20fe90a2d46529b7a5e9e9af3f38c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"producto\": {\r\n    \"codigo\": 10,\r\n    \"descripcion\": \"\"\r\n  },\r\n  \"subProducto\": {\r\n    \"codigo\": 52,\r\n    \"descripcion\": \"\"\r\n  },\r\n  \"codigoOperacion\": \"1098159\",\r\n  \"codigoTarea\": 469,   \r\n  \"codigoTipoTarea\": 0,\r\n  \"codigoBanca\": 1,\r\n  \"codigoFase\": 1,\r\n  \"codigoEstado\": 9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-test-gw.bancontinental.com.py/ciclodeaprobacion/v1/tracking/insertar",
+					"protocol": "https",
+					"host": [
+						"api-test-gw",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"ciclodeaprobacion",
+						"v1",
+						"tracking",
+						"insertar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Tracking - Cambio de Equipo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkcXg3bWhXTEwyQW9OOHBfWGd6cG5iajRhMzFySDV1Um5Ua0Fld2k2ZjFnIn0.eyJleHAiOjE3MjU0ODgyMDcsImlhdCI6MTcyNTQ1OTQwNywianRpIjoiZjhmMmU3NDAtMGI0Mi00NzAzLWE1MWYtMDNkYzFjMThmYjcxIiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay1kZXNhLmJhbmNvbnRpbmVudGFsLmNvbS5weS9hdXRoL3JlYWxtcy9pbnRlcm5vIiwiYXVkIjpbImNpY2xvZGVhcHJvYmFjaW9uIiwiYWNjb3VudCJdLCJzdWIiOiI0YjU5YzY1NS01NTFlLTRmMGEtYTZjMS03ZjYzNjVkMmI4MTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzaGFyZXBvaW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE5MC4xMDQuMTc5LjE3MCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJzaGFyZXBvaW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXNoYXJlcG9pbnQiLCJjYW5hbCI6InNoYXJlcG9pbnQiLCJjbGllbnRBZGRyZXNzIjoiMTkwLjEwNC4xNzkuMTcwIn0.r_DTiJ8R7pRboP1DrQMPObQ_8NBNQd-ifu5fSJx9aeRwouxlIPTlN1Owm1JmD6R0YFHq7HDs3uig--W3ng-JApJed2vNnH7OS_MUsgIhYkLL6-6-3PGeXB5b0eWe7XkAX741Wytr5aQ9aEe1h_BIRlQ-nixrTXML4eo1KWrdpX6mhnufpi9RJMQovbz_qFKY4LE8rouyOYxHEpERNSXUI7JvcYts9gx_q2PWhrwxf1jnKxDq9DvxG5siJSfMTqnbnOP5znIyw1IdP-QBTWGVBwLpDup0V7vfqvPHPFrd_IU_NzJ8KSoqQDF8Pfw9mg64MC1Ow1V1jA1DqQ69QzmzcQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Subscription-Key",
+						"value": "88b20fe90a2d46529b7a5e9e9af3f38c",
+						"type": "default"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"operacion\": \"1098169\",\r\n  \"codigoProducto\": 10,\r\n  \"codigoSubProducto\": 53,\r\n  \"orden\": 0,\r\n  \"estado\": 0,\r\n  \"paginaInicio\": 0,\r\n  \"paginaFin\": 0,\r\n  \"exclusion\": 3,\r\n  \"historico\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-test-gw.bancontinental.com.py/api-bpm-ciclo-seguimientos/v1/seguimientos/tracking",
+					"protocol": "https",
+					"host": [
+						"api-test-gw",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"api-bpm-ciclo-seguimientos",
+						"v1",
+						"seguimientos",
+						"tracking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Responder tareas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkcXg3bWhXTEwyQW9OOHBfWGd6cG5iajRhMzFySDV1Um5Ua0Fld2k2ZjFnIn0.eyJleHAiOjE3MjQzNjEwNzAsImlhdCI6MTcyNDMzMjI3MCwianRpIjoiZDQ4MmExMjktYTQ0OS00ZWEyLTk1Y2EtMThiNjFlNmQ1ZDlmIiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay1kZXNhLmJhbmNvbnRpbmVudGFsLmNvbS5weS9hdXRoL3JlYWxtcy9pbnRlcm5vIiwiYXVkIjpbImNpY2xvZGVhcHJvYmFjaW9uIiwiYWNjb3VudCJdLCJzdWIiOiI0YjU5YzY1NS01NTFlLTRmMGEtYTZjMS03ZjYzNjVkMmI4MTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzaGFyZXBvaW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjEwLjQzLjAuMiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJzaGFyZXBvaW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXNoYXJlcG9pbnQiLCJjYW5hbCI6InNoYXJlcG9pbnQiLCJjbGllbnRBZGRyZXNzIjoiMTAuNDMuMC4yIn0.Q8sxQJ5L43LUbroy371G3BV_NLNA4KTUi5fn5BYEUzUa0uckOSNwjW1d7Smzrg8mVAlcU_ERy-g5c_CisoFejMDYxhFJWNZzR2N1r6MxV8RurZ1US7Bn5aXWc2_MAZR9DIZvBpkx25aoKR9MDRNCDibtoSl7zeiXn8f4QV_n7Ke7pyjoCN4y9sKUvT9UdpitRRb4zt-CSpBaP5Aws2iqxP1ijTSf8oUTw9nt0EKMQpne9BUXYnmGRc4R2WHw-3XE7qPdTM9TFqeQWpXkI3aKNLQXeAtyL3LK5nqbTq-b25dlOI4RKNk9kbd3CB-mgvIsyIC3cQJ64qjyotC5pFnckQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Subscription-key",
+						"value": "88b20fe90a2d46529b7a5e9e9af3f38c"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"usuarioDominio\": \"gustavo.lopez\",\r\n  \"usuarioTresLetras\": \"GLP\",\r\n  \"usuarioNombre\": \"Gustavo Lopez\", \r\n  \"codigoDepartamento\": 358,\r\n  \"codigo\": 2251555,    \r\n  \"operacion\": \"1133013\",\r\n  \"codigoProducto\": 9,\r\n  \"codigoSubProducto\": 50,\r\n  \"codigoEstado\": 35,\r\n  \"codigoTipoTarea\": 1,\r\n  \"codigoTarea\": 461,\r\n  \"codigoFase\": 1,\r\n  \"codigoFaseCabecera\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-test.bancontinental.com.py/api-bpm-ciclo-aprobacion/v1/seguimientos/acciones/decision",
+					"protocol": "https",
+					"host": [
+						"api-test",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"api-bpm-ciclo-aprobacion",
+						"v1",
+						"seguimientos",
+						"acciones",
+						"decision"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Datos de Usuario 1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkcXg3bWhXTEwyQW9OOHBfWGd6cG5iajRhMzFySDV1Um5Ua0Fld2k2ZjFnIn0.eyJleHAiOjE3MjQ4ODU4NjAsImlhdCI6MTcyNDg1NzA2MCwianRpIjoiZDU1OThhMjItNzFmNy00YjRhLWJmMzYtMWM4ZGIwZTgyYjg3IiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay1kZXNhLmJhbmNvbnRpbmVudGFsLmNvbS5weS9hdXRoL3JlYWxtcy9pbnRlcm5vIiwiYXVkIjpbImNpY2xvZGVhcHJvYmFjaW9uIiwiYWNjb3VudCJdLCJzdWIiOiI0YjU5YzY1NS01NTFlLTRmMGEtYTZjMS03ZjYzNjVkMmI4MTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzaGFyZXBvaW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjEzMS4xNjEuMjUyLjEzMCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJzaGFyZXBvaW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXNoYXJlcG9pbnQiLCJjYW5hbCI6InNoYXJlcG9pbnQiLCJjbGllbnRBZGRyZXNzIjoiMTMxLjE2MS4yNTIuMTMwIn0.p8BzYz-5IWow4QQbvp4n2N0rf-YuLcy8e1mVpGlwsilHplSuqKBEseg1aJR5KZ1mfVu0inPJC4kVPZbpyvZSoFufdtzI797aUSE8UPhXkwG1yDkBqGRJhlTH1uwnGIe-JQILj_zsiBYDj8Cs554lajkXGWbRnMulh5DUPNQo0reTsBB8tCjz9agkP_6hDJ0S4fBoKBEOSmLQ3HP0vxgomNhsealz2tPGxWJ_VShUxRGX_gZM7f3l0hK5Guw8KeBsHxlUCxmMXjuzPQTOIy9TnXlGwb7IOS9NUSVaJEDVtPCbx_m5KpKjiXt_KsNmizEvo0JVNPTFNoF3pQlIJ_QdrQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Subscription-key",
+						"value": "88b20fe90a2d46529b7a5e9e9af3f38c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-test-gw.bancontinental.com.py/api-usuarios/v1/usuarios/gustavo.lopez",
+					"protocol": "https",
+					"host": [
+						"api-test-gw",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"api-usuarios",
+						"v1",
+						"usuarios",
+						"gustavo.lopez"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Datos de Usuario 2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkcXg3bWhXTEwyQW9OOHBfWGd6cG5iajRhMzFySDV1Um5Ua0Fld2k2ZjFnIn0.eyJleHAiOjE3MjQ4ODU4NjAsImlhdCI6MTcyNDg1NzA2MCwianRpIjoiZDU1OThhMjItNzFmNy00YjRhLWJmMzYtMWM4ZGIwZTgyYjg3IiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay1kZXNhLmJhbmNvbnRpbmVudGFsLmNvbS5weS9hdXRoL3JlYWxtcy9pbnRlcm5vIiwiYXVkIjpbImNpY2xvZGVhcHJvYmFjaW9uIiwiYWNjb3VudCJdLCJzdWIiOiI0YjU5YzY1NS01NTFlLTRmMGEtYTZjMS03ZjYzNjVkMmI4MTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzaGFyZXBvaW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjEzMS4xNjEuMjUyLjEzMCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJzaGFyZXBvaW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXNoYXJlcG9pbnQiLCJjYW5hbCI6InNoYXJlcG9pbnQiLCJjbGllbnRBZGRyZXNzIjoiMTMxLjE2MS4yNTIuMTMwIn0.p8BzYz-5IWow4QQbvp4n2N0rf-YuLcy8e1mVpGlwsilHplSuqKBEseg1aJR5KZ1mfVu0inPJC4kVPZbpyvZSoFufdtzI797aUSE8UPhXkwG1yDkBqGRJhlTH1uwnGIe-JQILj_zsiBYDj8Cs554lajkXGWbRnMulh5DUPNQo0reTsBB8tCjz9agkP_6hDJ0S4fBoKBEOSmLQ3HP0vxgomNhsealz2tPGxWJ_VShUxRGX_gZM7f3l0hK5Guw8KeBsHxlUCxmMXjuzPQTOIy9TnXlGwb7IOS9NUSVaJEDVtPCbx_m5KpKjiXt_KsNmizEvo0JVNPTFNoF3pQlIJ_QdrQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Subscription-key",
+						"value": "88b20fe90a2d46529b7a5e9e9af3f38c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-test-gw.bancontinental.com.py/api-bpm-ciclo-aprobacion/v1/consultas/gustavo.lopez",
+					"protocol": "https",
+					"host": [
+						"api-test-gw",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"api-bpm-ciclo-aprobacion",
+						"v1",
+						"consultas",
+						"gustavo.lopez"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cambio de Equipo",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Subscription-key",
+						"value": "88b20fe90a2d46529b7a5e9e9af3f38c",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"usuario\" : \"isaac.coronel\",\r\n  \"equipo\" : \"informatica3\",\r\n  \"sucursal\" : \"26 - Suc. SantaRita\",\r\n  \"path\" : \"bancontinental.com.py/Bancontinental/26 - Suc. SantaRita/Usuarios/PRUEBA LDAP\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apibanking-desa.bancontinental.com.py/api-seguridad-proceso/v1/api/api-seguridad-procesos/equipos",
+					"protocol": "https",
+					"host": [
+						"apibanking-desa",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"api-seguridad-proceso",
+						"v1",
+						"api",
+						"api-seguridad-procesos",
+						"equipos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar usuario de un equipo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkcXg3bWhXTEwyQW9OOHBfWGd6cG5iajRhMzFySDV1Um5Ua0Fld2k2ZjFnIn0.eyJleHAiOjE3MjQ4ODU4NjAsImlhdCI6MTcyNDg1NzA2MCwianRpIjoiZDU1OThhMjItNzFmNy00YjRhLWJmMzYtMWM4ZGIwZTgyYjg3IiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay1kZXNhLmJhbmNvbnRpbmVudGFsLmNvbS5weS9hdXRoL3JlYWxtcy9pbnRlcm5vIiwiYXVkIjpbImNpY2xvZGVhcHJvYmFjaW9uIiwiYWNjb3VudCJdLCJzdWIiOiI0YjU5YzY1NS01NTFlLTRmMGEtYTZjMS03ZjYzNjVkMmI4MTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzaGFyZXBvaW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjEzMS4xNjEuMjUyLjEzMCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJzaGFyZXBvaW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXNoYXJlcG9pbnQiLCJjYW5hbCI6InNoYXJlcG9pbnQiLCJjbGllbnRBZGRyZXNzIjoiMTMxLjE2MS4yNTIuMTMwIn0.p8BzYz-5IWow4QQbvp4n2N0rf-YuLcy8e1mVpGlwsilHplSuqKBEseg1aJR5KZ1mfVu0inPJC4kVPZbpyvZSoFufdtzI797aUSE8UPhXkwG1yDkBqGRJhlTH1uwnGIe-JQILj_zsiBYDj8Cs554lajkXGWbRnMulh5DUPNQo0reTsBB8tCjz9agkP_6hDJ0S4fBoKBEOSmLQ3HP0vxgomNhsealz2tPGxWJ_VShUxRGX_gZM7f3l0hK5Guw8KeBsHxlUCxmMXjuzPQTOIy9TnXlGwb7IOS9NUSVaJEDVtPCbx_m5KpKjiXt_KsNmizEvo0JVNPTFNoF3pQlIJ_QdrQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Subscription-key",
+						"value": "88b20fe90a2d46529b7a5e9e9af3f38c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"usuario\": \"pruebas.ldap\",\r\n  \"equipo\": \"TRANSDIGITAL4\",\r\n  \"sucursal\": \"26 - Suc. SantaRita\",\r\n  \"path\": \"bancontinental.com.py/Bancontinental/26 - Suc. SantaRita/Usuarios/PRUEBA LDAP\"\r\n}   ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apibanking-desa.bancontinental.com.py/api-seguridad-proceso/v1/api/api-seguridad-procesos/equipos",
+					"protocol": "https",
+					"host": [
+						"apibanking-desa",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"api-seguridad-proceso",
+						"v1",
+						"api",
+						"api-seguridad-procesos",
+						"equipos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Envio de Correo Continental",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiKey",
+						"value": "f9@dg+6TR5SeCh-h9g!z*5",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "remitente",
+							"value": "userweb@bancontinental.com.py",
+							"type": "default"
+						},
+						{
+							"key": "nombreRemitente",
+							"value": "Banco Continental",
+							"type": "default"
+						},
+						{
+							"key": "destinatario",
+							"value": "consultor.clt3@bancontinental.com.py",
+							"type": "default"
+						},
+						{
+							"key": "conCopia",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "asunto",
+							"value": "Prueba de envio correo",
+							"type": "default"
+						},
+						{
+							"key": "cuerpo",
+							"value": "test",
+							"type": "default"
+						},
+						{
+							"key": "confirmarRecepcion",
+							"value": "S",
+							"type": "default"
+						},
+						{
+							"key": "canal",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "origen",
+							"value": "1",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apibanking-desa.bancontinental.com.py/api-notificaciones-gateway/v1/api/correo",
+					"protocol": "https",
+					"host": [
+						"apibanking-desa",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"api-notificaciones-gateway",
+						"v1",
+						"api",
+						"correo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Tracking - Notas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkcXg3bWhXTEwyQW9OOHBfWGd6cG5iajRhMzFySDV1Um5Ua0Fld2k2ZjFnIn0.eyJleHAiOjE3MjUzOTcyMjAsImlhdCI6MTcyNTM2ODQyMCwianRpIjoiMjcyYTczY2MtY2I1OS00Y2YzLTkwMTktMDZiYTdmZGQ2N2ZmIiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay1kZXNhLmJhbmNvbnRpbmVudGFsLmNvbS5weS9hdXRoL3JlYWxtcy9pbnRlcm5vIiwiYXVkIjpbImNpY2xvZGVhcHJvYmFjaW9uIiwiYWNjb3VudCJdLCJzdWIiOiI0YjU5YzY1NS01NTFlLTRmMGEtYTZjMS03ZjYzNjVkMmI4MTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzaGFyZXBvaW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE5MC4xMDQuMTc5LjE5MCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJzaGFyZXBvaW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXNoYXJlcG9pbnQiLCJjYW5hbCI6InNoYXJlcG9pbnQiLCJjbGllbnRBZGRyZXNzIjoiMTkwLjEwNC4xNzkuMTkwIn0.UcP0ZAvMMh8Jf2ZCgSBvhOmPPkVKjMO-FQAjss_Ux_FKKkxi8QqdoAkSPr3ptzIZwak_ItsU_jxMesgInjAhgmYcIAeHjttcRIIEzX9GOatnneOZBlImeupPNmKlf9Jo5iAcBcNwL935HsFzm-xUObIUVourfQdvUCWmYo9pZE6U-mgfvInA7Fu9vVuUlc_XdF1RhouEgI3G7VC89_r2AnKPQso0gkypiBwf_otJU2SetZ5bxUyLbe5PzWQVthhGQiP52TL7iWxfUUg2YqpFjsPd3rLjBxiD7mXDIZGfnEbmGh6YRoO3V3-cgHw5H-ixlJZT_vigz-SR2Tc1p7bDZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Subscription-Key",
+						"value": "88b20fe90a2d46529b7a5e9e9af3f38c",
+						"type": "default"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"operacion\": \"1133013\",\r\n  \"codigoProducto\": 9,\r\n  \"codigoSubProducto\": 50,\r\n  \"orden\": 0,\r\n  \"estado\": 0,\r\n  \"paginaInicio\": 0,\r\n  \"paginaFin\": 0,\r\n  \"exclusion\": 3,\r\n  \"historico\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-test-gw.bancontinental.com.py/api-bpm-ciclo-seguimientos/v1/seguimientos/tracking",
+					"protocol": "https",
+					"host": [
+						"api-test-gw",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"api-bpm-ciclo-seguimientos",
+						"v1",
+						"seguimientos",
+						"tracking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Equipo de Usuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkcXg3bWhXTEwyQW9OOHBfWGd6cG5iajRhMzFySDV1Um5Ua0Fld2k2ZjFnIn0.eyJleHAiOjE3MjQ4ODU4NjAsImlhdCI6MTcyNDg1NzA2MCwianRpIjoiZDU1OThhMjItNzFmNy00YjRhLWJmMzYtMWM4ZGIwZTgyYjg3IiwiaXNzIjoiaHR0cHM6Ly9rZXljbG9hay1kZXNhLmJhbmNvbnRpbmVudGFsLmNvbS5weS9hdXRoL3JlYWxtcy9pbnRlcm5vIiwiYXVkIjpbImNpY2xvZGVhcHJvYmFjaW9uIiwiYWNjb3VudCJdLCJzdWIiOiI0YjU5YzY1NS01NTFlLTRmMGEtYTZjMS03ZjYzNjVkMmI4MTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJzaGFyZXBvaW50IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjEzMS4xNjEuMjUyLjEzMCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJzaGFyZXBvaW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LXNoYXJlcG9pbnQiLCJjYW5hbCI6InNoYXJlcG9pbnQiLCJjbGllbnRBZGRyZXNzIjoiMTMxLjE2MS4yNTIuMTMwIn0.p8BzYz-5IWow4QQbvp4n2N0rf-YuLcy8e1mVpGlwsilHplSuqKBEseg1aJR5KZ1mfVu0inPJC4kVPZbpyvZSoFufdtzI797aUSE8UPhXkwG1yDkBqGRJhlTH1uwnGIe-JQILj_zsiBYDj8Cs554lajkXGWbRnMulh5DUPNQo0reTsBB8tCjz9agkP_6hDJ0S4fBoKBEOSmLQ3HP0vxgomNhsealz2tPGxWJ_VShUxRGX_gZM7f3l0hK5Guw8KeBsHxlUCxmMXjuzPQTOIy9TnXlGwb7IOS9NUSVaJEDVtPCbx_m5KpKjiXt_KsNmizEvo0JVNPTFNoF3pQlIJ_QdrQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Subscription-key",
+						"value": "88b20fe90a2d46529b7a5e9e9af3f38c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apibanking-desa.bancontinental.com.py/api-seguridad-proceso/v1/api/api-seguridad-procesos/equipos?Usuario=issac.coronel",
+					"protocol": "https",
+					"host": [
+						"apibanking-desa",
+						"bancontinental",
+						"com",
+						"py"
+					],
+					"path": [
+						"api-seguridad-proceso",
+						"v1",
+						"api",
+						"api-seguridad-procesos",
+						"equipos"
+					],
+					"query": [
+						{
+							"key": "Usuario",
+							"value": "issac.coronel"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "0"
+		}
+	]
+}
